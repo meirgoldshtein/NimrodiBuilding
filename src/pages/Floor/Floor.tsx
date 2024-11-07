@@ -8,7 +8,6 @@ const Floor: React.FC = () => {
   // מייצג את הקומה שנבחרה
   const { index } = useParams<{ index: string }>();
   const floorIndex = parseInt(index || "0");
-  // מקבלים את אובייקט הקומה מהמערך ורישמת פעילויות
   const { getFloorByIndex, getListOfActivities } = useBuildingData();
   const navigate = useNavigate();
 
@@ -16,8 +15,11 @@ const Floor: React.FC = () => {
   const currentRole = useSelector((state: { role: string }) => state.role);
   const thisFloorActivity: string = thisFloor?.activity || "";
   const activities = getListOfActivities();
+ 
 
   const handleClick = () => {
+    console.log("tryy");
+    
     const isVerified = useIsVerified({ activity: thisFloorActivity, role: currentRole, activities });
     if (isVerified) {
       alert(`You are currently ${thisFloorActivity}`);

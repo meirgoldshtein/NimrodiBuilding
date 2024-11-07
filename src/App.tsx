@@ -16,8 +16,8 @@ const router = createBrowserRouter([
         element: <Reception />,
       },
       {
-        path: "/floor/:floorIndex",
-        element: <Floor />,
+        path: "/floor/:index",
+        element: <PrivateRoute component={<Floor />} />,
       },
       {
         path: "/forbidden",

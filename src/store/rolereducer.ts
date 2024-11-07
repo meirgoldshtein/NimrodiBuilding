@@ -1,25 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-enum RoleType {
-    "Unknown Personnel",
-    "Guest",
-    "Student",
-    "Developer",
-    "Executive Personnel"
-}
+import roles from "../data/roles.json";
 
 interface RoleState {
-    role: RoleType;
+    role: string;
 }
 
 export const roleSlice = createSlice({
     name: "role",
-    initialState: { role: RoleType["Unknown Personnel"] } as RoleState,
+    initialState: "Unknown Personnel" ,
     reducers: {
-        setRole: (state, action: PayloadAction<RoleType>) => {
-            console.log(state.role, action.payload);
-            state.role = action.payload;
+        setRole: (state: string , action: PayloadAction<number>) => {       
+            state = roles[action.payload];
+            return state
         }
+        
     },
 });
 
