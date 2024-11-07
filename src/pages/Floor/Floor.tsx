@@ -5,8 +5,10 @@ import useBuildingData from '../../utils/BuildingDataProvider';
 import './Floor.css'; 
 
 const Floor: React.FC = () => {
+  // מייצג את הקומה שנבחרה
   const { index } = useParams<{ index: string }>();
   const floorIndex = parseInt(index || "0");
+  // מקבלים את אובייקט הקומה מהמערך ורישמת פעילויות
   const { getFloorByIndex, getListOfActivities } = useBuildingData();
   const navigate = useNavigate();
 
@@ -17,11 +19,11 @@ const Floor: React.FC = () => {
 
   const handleClick = () => {
     const isVerified = useIsVerified({ activity: thisFloorActivity, role: currentRole, activities });
-    // if (isVerified) {
-    //   alert(`You are currently ${thisFloorActivity}`);
-    // } else {
-    //   navigate("/forbidden");
-    // }
+    if (isVerified) {
+      alert(`You are currently ${thisFloorActivity}`);
+    } else {
+      navigate("/forbidden");
+    }
   };
 
   return (

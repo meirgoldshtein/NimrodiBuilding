@@ -7,7 +7,12 @@ interface IuseActivityParams {
 }
 
 const useIsVerified = ({ activity, role, activities }: IuseActivityParams) => {
-  //FILL HERE 3.7
+  const activityIndex = activities.findIndex((item ) => item === activity);
+  if (activityIndex === -1) {
+    return false;
+  }
+  return true;
+  
 };
 
 export default useIsVerified;
