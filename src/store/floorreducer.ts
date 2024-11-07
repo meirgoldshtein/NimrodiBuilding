@@ -16,9 +16,9 @@ export const floorSlice = createSlice({
         floorAccess: [false, false, false, false, false]
     },
     reducers: {
-        changeAccess: (state: { floorAccess: boolean[] }, action: PayloadAction<{ index: number, value: boolean }>
+        changeAccess: (state: { floorAccess: boolean[] }, action: PayloadAction<number>
         ) => {
-            state.floorAccess[action.payload.index] = action.payload.value;
+            state.floorAccess[action.payload] = true;
         },
     },
 });

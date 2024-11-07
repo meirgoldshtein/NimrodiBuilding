@@ -17,11 +17,11 @@ const Floor: React.FC = () => {
 
   const handleClick = () => {
     const isVerified = useIsVerified({ activity: thisFloorActivity, role: currentRole, activities });
-    if (isVerified) {
-      alert(`You are currently ${thisFloorActivity}`);
-    } else {
-      navigate("/forbidden");
-    }
+    // if (isVerified) {
+    //   alert(`You are currently ${thisFloorActivity}`);
+    // } else {
+    //   navigate("/forbidden");
+    // }
   };
 
   return (
