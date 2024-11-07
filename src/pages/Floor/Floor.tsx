@@ -18,8 +18,7 @@ const Floor: React.FC = () => {
  
 
   const handleClick = () => {
-    console.log("tryy");
-    
+    // בדיקת הרשאות    
     const isVerified = useIsVerified({ activity: thisFloorActivity, role: currentRole, activities });
     if (isVerified) {
       alert(`You are currently ${thisFloorActivity}`);
